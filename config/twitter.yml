@@ -1,0 +1,22 @@
+development:
+  key: oJsI2Aa7mtThfUvxAqZy0A
+  secret: cDZJbgwqkWtJ4jwR4iNrazonlHN5ugqkpWZuYeibI
+  notifier_key: gtPs0gk0GxP8nue7oo62A
+  notifier_secret: oLKdEMNToq5j8b8ckU1a34GF44u3ulQgyzhf8Nl3GcU
+  token: 579735853-sh7pwhEmCqPNJw1HU0C9zOEHodRauKrnLfrsKozm
+  token_secret: QW6ZViqHiip14jZenU0Vq7yWD4H4PKyK8lGlS3RLS0U
+production:
+  key: oJsI2Aa7mtThfUvxAqZy0A
+  secret: cDZJbgwqkWtJ4jwR4iNrazonlHN5ugqkpWZuYeibI
+  notifier_key: gtPs0gk0GxP8nue7oo62A
+  notifier_secret: oLKdEMNToq5j8b8ckU1a34GF44u3ulQgyzhf8Nl3GcU
+  token: 579735853-sh7pwhEmCqPNJw1HU0C9zOEHodRauKrnLfrsKozm
+  token_secret: QW6ZViqHiip14jZenU0Vq7yWD4H4PKyK8lGlS3RLS0U
+test:
+  key: nokey
+  secret: nosecret
+  notifier_key: nonotifier_key
+  notifier_secret: nonotifier_secret
+  token: notoken
+  token_secret: notokensecret
+
