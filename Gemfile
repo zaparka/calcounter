@@ -10,7 +10,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'omniauth-twitter'
+gem 'twitter'
 
 group :development, :test do
   gem 'debugger'
+  gem 'annotate', '2.4.1.beta1'
 end
+
+# for heroku
+gem "pg"
