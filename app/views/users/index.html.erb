@@ -1,6 +1,48 @@
-<% if current_user %>
-  Signed in as <%= current_user.name %>!
-  <%= link_to "Sign out", signout_path %>
-<% else %>
-  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+<% if false %>
+  <% if current_user %>
+    Signed in as <%= current_user.name %>!
+    <%= link_to "Sign out", signout_path %>
+  <% else %>
+    <%= link_to "Sign in with Runkeeper", "/auth/runkeeper" %>
+  <% end %>
 <% end %>
+
+<div class="container">
+  <div id="header">
+  </div><!--end header-->
+  <div style="clear:both"></div>
+
+  <div id="main">
+
+    <div id="content">
+
+      <div class="text">
+        <h2>CalCounter is coming soon.</h2>
+        <p>CalCounter and RunKeeper will provide you nice and easy feedback on your calorie intake.</p>
+      </div><!--end text-->
+
+      <div class="counter">
+        <h3>Estimated Time Remaining Before Launch:</h3>
+        <div id="defaultCountdown"></div>
+      </div><!--end counter-->
+
+      <div class="details">
+        <div id="sliderwrap">
+          <div id="slidertext"><!-- The slider -->
+            <h3>Type your email to get the updates!</h3>
+            <form method="post" id="subscribeform" action="">
+              <fieldset>
+                <div id="email_input">
+                  <input name="email" type="text" size="30" value="Enter Your E-mail"/>
+                  <input type="submit" id="submit" value="SUBMIT" size="80" />
+                </div>
+              </fieldset>
+            </form>
+          </div><!-- End of slidertext -->
+        </div><!-- End of sliderwrap -->
+
+      </div><!--end details-->
+    </div><!--end content-->
+    <p class="copyright">Copyright &copy; Zaparka. All rights reserved</p>
+  </div><!--end main-->
+</div><!--end class container-->

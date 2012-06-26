@@ -4,7 +4,31 @@
   <title>Calcounter</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "http://code.jquery.com/jquery-latest.pack.js" %>
+  <%= javascript_include_tag "jquery.countdown.js", "jcarousellite1.0.1_min.js" %>
+  
   <%= csrf_meta_tags %>
+  <!-- jquery countdown-->
+  <script type="text/javascript">
+  $(function () {
+  var austDay = new Date("July 6, 2012 12:00:00");
+      $('#defaultCountdown').countdown({until: austDay, layout: '{dn} {dl}, {hn} {hl}, {mn} {ml}, and {sn} {sl}'});
+      $('#year').text(austDay.getFullYear());
+      });
+  </script>
+
+  <!-- jquery slider -->
+  <script type="text/javascript">
+
+  $(function() {
+      $("#slidertext").jCarouselLite({
+          btnNext: ".next",
+          btnPrev: ".prev"
+      });
+  });
+
+  </script>
+  
 </head>
 <body>
 

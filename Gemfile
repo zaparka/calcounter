@@ -10,8 +10,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'omniauth-twitter'
-gem 'twitter'
+
+gem "omniauth-runkeeper"
+gem "runkeeper"
 
 group :development, :test do
   gem 'debugger'
