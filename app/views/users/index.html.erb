@@ -9,6 +9,18 @@
 
 <div class="container">
   <div id="header">
+    <% if @subscriber && @subscriber.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@subscriber.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+        <% @subscriber.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
   </div><!--end header-->
   <div style="clear:both"></div>
 
@@ -30,6 +42,14 @@
         <div id="sliderwrap">
           <div id="slidertext"><!-- The slider -->
             <h3>Type your email to get the updates!</h3>
+            <%= form_for Subscriber.new do |f| %>
+              <fieldset>
+                <div id="email_input">
+                  <%= f.text_field :email, :value => "Enter Your E-mail", :id => "email" %>
+                  <%= f.submit "SUBMIT", :id => "submit" %>
+                </div>
+              </fieldset>
+            <% end %>
             <form method="post" id="subscribeform" action="">
               <fieldset>
                 <div id="email_input">
