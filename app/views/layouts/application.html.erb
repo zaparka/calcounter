@@ -20,9 +20,8 @@
   <script type="text/javascript">
 
   $(function() {
-      $("#slidertext").jCarouselLite({
-          btnNext: ".next",
-          btnPrev: ".prev"
+      $("input#email").focus(function(){
+        this.value = ""
       });
   });
 
@@ -30,13 +29,14 @@
   
 </head>
 <body>
-  <% if flash[:notice] %>
+  <section>
+    <% if flash[:notice] %>
       <p class="notice"><%= flash[:notice] %></p>
     <% end %>
     <% if flash[:error] %>
       <p class="error"><%= flash[:error] %></p>
     <% end %>
-    <!-- more content -->
+  </section>
 <%= yield %>
 
 </body>

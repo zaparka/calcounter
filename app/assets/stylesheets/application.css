@@ -63,13 +63,6 @@ body {    background: #aaaaaa url(bg.jpg) repeat scroll 0 0 }
 
 /* === Header Styles === */
 
-#header {
-    margin: auto;
-    margin-top: 80px;
-    margin-bottom: 10px;
-    height: 50px;
-}
-
 #logo {
     position: relative;
     float: left;
@@ -227,16 +220,31 @@ input#submit {
 /* === jQuery Countdown Styles === */
 
 #defaultCountdown {
-    width: 757px;
-    height: 60px;
+  width: 757px;
+  height: 60px;
 }
 
 .hasCountdown {
-    text-align: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: #E5E5E5;
-    margin-top: 45px;
-    font-size: 26px;
-    font-weight: normal;
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #E5E5E5;
+  margin-top: 45px;
+  font-size: 26px;
+  font-weight: normal;
+}
+
+section {
+  width: 757px;
+  height: 20px;
+  padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+section p.error {
+  color: #f00;
+}
+section p.notice {
+  color: #262626;
 }
