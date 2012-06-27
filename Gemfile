@@ -17,6 +17,7 @@ gem "runkeeper"
 group :development, :test do
   gem 'debugger'
   gem 'annotate', '2.4.1.beta1'
+  gem "rspec-rails"
 end
 
 # for heroku
