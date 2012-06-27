@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery.countdown
-// = require jcarousellite1.0.1_min.js
+//= require jcarousellite1.0.1_min.js
