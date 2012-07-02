@@ -12,5 +12,5 @@
 #
 
 class Food < ActiveRecord::Base
-  attr_accessible :calories, :portion_size, :unit
+  attr_accessible :calories, :portion_size, :unit, :name
 end
