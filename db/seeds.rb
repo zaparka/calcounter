@@ -45,7 +45,7 @@ food_items = [
 ]
 
 food_items.each do |food|
-  category = Category.create(:name => food[:category]) || Category.find(food[:category])
+  category = Category.find_by_name(food[:category]) || Category.create(:name => food[:category])
   food.delete(:category)
   food.merge!(:category_id => category.id)
   Food.create(food)
