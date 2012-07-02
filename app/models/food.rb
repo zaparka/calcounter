@@ -12,5 +12,7 @@
 #
 
 class Food < ActiveRecord::Base
-  attr_accessible :calories, :portion_size, :unit, :name
+  validates_uniqueness_of :name
+  attr_accessible :calories, :portion_size, :unit, :name, :category_id
+  belongs_to :category
 end
