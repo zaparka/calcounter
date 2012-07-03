@@ -12,7 +12,7 @@ end
 gem 'jquery-rails'
 
 gem "omniauth-runkeeper"
-gem "runkeeper"
+gem "runkeeper", :git => "git://github.com/zaparka/runkeeper.git"
 
 group :development, :test do
   gem 'debugger'

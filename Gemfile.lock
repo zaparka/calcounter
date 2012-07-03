@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/zaparka/runkeeper.git
+  revision: 75606ca4b3b767b3a11f9a8dc2744ef5e397816c
+  specs:
+    runkeeper (0.0.3)
+      httparty
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -126,8 +133,6 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.10.0)
-    runkeeper (0.0.3)
-      httparty
     sass (3.1.19)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -160,6 +165,6 @@ DEPENDENCIES
   pg
   rails (= 3.2.6)
   rspec-rails
-  runkeeper
+  runkeeper!
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
