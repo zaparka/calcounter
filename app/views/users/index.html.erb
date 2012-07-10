@@ -1,13 +1,27 @@
-<% if false %>
+<% if true %>
   <% if current_user %>
     Signed in as <%= current_user.name %>!
     <%= link_to "Sign out", signout_path %>
+    <span>Total calories burned per last activity <%= @last_activity["total_calories"] %></span>
   <% else %>
     <%= link_to "Sign in with Runkeeper", "/auth/runkeeper" %>
   <% end %>
 <% end %>
 
-<div class="container">
+<script type="text/x-handlebars">
+  {{#view App.MyView}}
+    <ul class="activities">
+      <% @activities.each do |activity| %>
+        <%= content_tag :li, :id => activity['uri'] do %>
+          <span><%= "#{activity['type']}: #{activity['start_time']}" %></span>
+        <% end %>
+      <% end %>
+    </ul>
+  {{/view}}
+</script>
+
+
+<div class="container hidden">
   <div style="clear:both"></div>
 
   <div id="main">

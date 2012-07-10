@@ -15,3 +15,21 @@
 //= require_tree .
 //= require jquery.countdown
 //= require jcarousellite1.0.1_min.js
+//= require ember-0.9.8.1.min.js
+
+var App = Em.Application.create();
+
+// view
+App.MyView = Em.View.extend({
+  mouseDown: function(event) {
+    console.log(event.target.getAttribute('id'));
+    person = Person.create({id: 123});
+  }
+});
+
+// model
+Person = Ember.Object.extend({
+  say: function(thing) {
+    console.log(thing + " " + person.id)
+ }
+});

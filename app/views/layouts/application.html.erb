@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Calcounter <%= (flash[:notice]) ? "registered" : "" %></title>
+  <%= stylesheet_link_tag    "style", :media => "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "http://code.jquery.com/jquery-latest.pack.js" %>
   <%= javascript_include_tag "application" %>
@@ -50,7 +51,9 @@
       <p class="error"><%= flash[:error] %></p>
     <% end %>
   </section>
+
 <%= yield %>
+
 
 </body>
 </html>

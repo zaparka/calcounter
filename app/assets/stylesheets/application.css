@@ -46,7 +46,7 @@ body {
 
 /*p { font-family: Serif}*/
 
-body {  background: #aaaaaa url(bg.jpg) repeat scroll 0 0 }
+
 
 .container {
   width: 885px;
@@ -247,6 +247,21 @@ section {
 section p.error {
   color: #f00;
 }
+
 section p.notice {
   color: #262626;
+}
+
+.hidden {
+  display: none;
+}
+
+/*ul.activities {
+  height: 300px;
+  width: 300px;
+  overflow: auto;
+}
+*/
+.activities li{
+  padding-top: 10px;
 }
