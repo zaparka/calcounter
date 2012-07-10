@@ -14,7 +14,9 @@
 
 class User < ActiveRecord::Base
   attr_accessible :name, :provider, :runkeeper, :twitter, :uid
-  
+
+  has_many :activities
+
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end

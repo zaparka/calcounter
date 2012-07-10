@@ -12,10 +12,12 @@
 #  user_id    :integer(4)      not null
 #
 
-class Activity < ActiveRecord::Base
-  attr_accessible :calories, :start_time, :type, :uri, :user_id, :user
+require 'spec_helper'
 
-  validates_presence_of :user_id
-
-  belongs_to :user
+describe Activity do
+  it "belongs to user" do
+    user = User.create(:name => "John")
+    activity = Activity.create(:user => user)
+    activity.reload.user.should == user
+  end
 end
