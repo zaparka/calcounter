@@ -16,6 +16,7 @@ class Activity < ActiveRecord::Base
   attr_accessible :calories, :start_time, :type, :uri, :user_id, :user
 
   validates_presence_of :user_id
+  validates_uniqueness_of :start_time, :scope => :user_id
 
   belongs_to :user
 end

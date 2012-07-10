@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     if current_user
       user = Runkeeper.new(session[:user_token])
       @activities = user.fitness_activities["items"]
+      update_users_activities if @activities.present?
       @last_activity = user.past_activity(@activities.first["uri"])
     end
   end
@@ -24,9 +25,12 @@ class UsersController < ApplicationController
   
   private
   def update_users_activities
-    current_user
     @activities.each do |activity|
-      # Activity.create(:)
+      Activity.create(:user => current_user,
+                      :uri => activity["uri"],
+                      :type => activity["type"],
+                      :start_time => activity["start_time"])
+      
     end
   end
 end
