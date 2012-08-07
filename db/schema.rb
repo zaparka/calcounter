@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807112806) do
+ActiveRecord::Schema.define(:version => 20120807120259) do
 
   create_table "activities", :force => true do |t|
     t.string   "uri"
     t.integer  "calories"
-    t.string   "type"
+    t.string   "activity_type"
     t.string   "start_time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "user_id",    :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "user_id",       :null => false
   end
 
   create_table "categories", :force => true do |t|
