@@ -4,6 +4,7 @@ Calcounter::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :users
+  get "runkeeper_activity/:activity_id" => "runkeeperactivities#show", :as => "runkeeper_activity"
   resources :subscribers, :only => :create
   root :to => 'users#index'
 end

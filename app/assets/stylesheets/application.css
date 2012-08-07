@@ -256,12 +256,14 @@ section p.notice {
   display: none;
 }
 
-/*ul.activities {
-  height: 300px;
-  width: 300px;
-  overflow: auto;
+ul.activities {
+  margin-left: 10px;
 }
-*/
+
 .activities li{
-  padding-top: 10px;
+  width: 300px;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }

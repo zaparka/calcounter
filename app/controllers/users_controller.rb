@@ -1,5 +1,3 @@
-# require("runkeeper")
-
 class UsersController < ApplicationController
   def index
     @activities = []
@@ -10,7 +8,7 @@ class UsersController < ApplicationController
       @last_activity = user.past_activity(@activities.first["uri"])
     end
   end
-
+  
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end

@@ -8,18 +8,6 @@
   <% end %>
 <% end %>
 
-<script type="text/x-handlebars">
-  {{#view App.MyView}}
-    <ul class="activities">
-      <% @activities.each do |activity| %>
-        <%= content_tag :li, :id => activity['uri'] do %>
-          <span><%= "#{activity['type']}: #{activity['start_time']}" %></span>
-        <% end %>
-      <% end %>
-    </ul>
-  {{/view}}
-</script>
-
 
 <div class="container hidden">
   <div style="clear:both"></div>

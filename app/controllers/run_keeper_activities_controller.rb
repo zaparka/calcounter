@@ -1,0 +1,2 @@
+class RunKeeperActivitiesController < ApplicationController
+end
