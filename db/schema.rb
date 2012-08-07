@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120710143435) do
+ActiveRecord::Schema.define(:version => 20120807112806) do
 
   create_table "activities", :force => true do |t|
     t.string   "uri"
@@ -51,8 +51,9 @@ ActiveRecord::Schema.define(:version => 20120710143435) do
     t.string   "uid"
     t.string   "provider"
     t.string   "runkeeper"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "distance_unit"
   end
 
 end
