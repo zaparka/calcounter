@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   def index
-    @activities = []
     if current_user
       user = Runkeeper.new(session[:user_token])
+      @user = user.settings
       @activities = user.fitness_activities["items"]
       update_users_activities if @activities.present?
       @last_activity = user.past_activity(@activities.first["uri"])
+    else
+      @activities = []
     end
   end
   
