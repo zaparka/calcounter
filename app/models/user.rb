@@ -14,7 +14,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :provider, :runkeeper, :twitter, :uid
+  attr_accessible :name, :provider, :runkeeper, :twitter, :uid, :distance_unit
 
   has_many :activities
 
@@ -28,6 +28,20 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
       user.twitter = auth["info"]["nickname"]
+    end
+  end
+
+  def load_latest_data(runkeeper_user)
+    unit = runkeeper_user.settings["distance_units"] if self.distance_unit.blank?
+    self.update_attribute(:distance_unit, unit)
+
+    activities = runkeeper_user.fitness_activities["items"]
+    activities.each do |activity|
+      Activity.create(:user => self,
+                      :uri => activity["uri"],
+                      :activity_type => activity["type"],
+                      :start_time => activity["start_time"].to_time.to_i,
+                      :total_distance => activity["total_distance"])
     end
   end
   
