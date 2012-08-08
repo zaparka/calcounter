@@ -1,0 +1,17 @@
+<div class="container">
+  <div style="clear:both"></div>
+
+  <div id="main">
+    <div id="content">
+      <ul>
+        <% @activities.each do |activity| %>
+          <li>
+          <%= Time.at(activity.start_time.to_i).strftime("%A %e %B %Y") %>
+          <%= (activity.total_distance/1000).round(2).to_s + " " + current_user.distance_unit %></li>
+        <% end %>
+      </ul>
+
+    </div><!--end content-->
+    <p class="copyright">Copyright &copy; Zaparka. All rights reserved</p>
+  </div><!--end main-->
+</div><!--end class container-->

@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  # before_filter update_users_activities, :only => :index
+
   def index
+  end
+  
+  def show
     if current_user
-      user = Runkeeper.new(session[:user_token])
-      @user = user.settings
-      @activities = user.fitness_activities["items"]
-      update_users_activities if @activities.present?
-      @last_activity = user.past_activity(@activities.first["uri"])
+      @activities = current_user.activities
+      @last_activity = runkeeper_user.past_activity(@activities.last.uri)
     else
       @activities = []
     end
@@ -23,14 +25,4 @@ class UsersController < ApplicationController
     end
   end
   
-  private
-  def update_users_activities
-    @activities.each do |activity|
-      Activity.create(:user => current_user,
-                      :uri => activity["uri"],
-                      :type => activity["type"],
-                      :start_time => activity["start_time"])
-      
-    end
-  end
 end

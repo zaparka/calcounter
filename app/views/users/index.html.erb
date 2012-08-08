@@ -8,21 +8,3 @@
   <% end %>
 <% end %>
 
-
-<div class="container">
-  <div style="clear:both"></div>
-
-  <div id="main">
-    <div id="content">
-      <ul>
-        <% @activities.each do |activity| %>
-          <li>
-          <%= activity['start_time'].to_date.strftime("%A -%e %B %Y") %>
-          <%= (@activities.first['total_distance']/1000).round(2).to_s + " " + @user["distance_units"] %></li>
-        <% end %>
-      </ul>
-
-    </div><!--end content-->
-    <p class="copyright">Copyright &copy; Zaparka. All rights reserved</p>
-  </div><!--end main-->
-</div><!--end class container-->
