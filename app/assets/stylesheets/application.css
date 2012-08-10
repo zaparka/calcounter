@@ -70,3 +70,7 @@ ul.activities {
   border: 1px solid #ccc;
   cursor: pointer;
 }
+
+.activities li.active {
+  background-color: #E0E0E0;
+}

@@ -12,3 +12,24 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+$(window).load(function () {
+  $('ul.activities li').click(function(){
+    $('ul.activities li.active').removeClass('active');
+    $(this).addClass('active');
+    load_data
+  })
+});
+
+function load_data(url){
+  $.ajax({
+    url: url,
+    context: document.body
+  }).done(function() { 
+    // $(this).addClass("done");
+    // update actual activity
+    $("figure span#calories_burned em").text('22');
+    $("figure span#latest_start em").text('22');
+    $("figure span#latest_distance em").text('22');
+  });
+}

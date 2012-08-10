@@ -21,4 +21,15 @@ describe Activity do
     activity = Activity.create(:user => user)
     activity.reload.user.should == user
   end
+  
+  describe "update_from_stream!" do
+    it "update current actity with data from stream" do
+      stream = {"total_calories" => 345}
+      activity = Activity.new()
+      activity.should_receive(:save)
+
+      act = activity.update_from_stream!(stream)
+      act.calories.should == 345
+    end
+  end
 end

@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  def authenticate
+    return if current_user.present?
+    redirect_to root_url
+  end
+
   private
   
   def runkeeper_user

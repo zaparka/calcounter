@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate, :only => :show
+
   def index
   end
   
@@ -6,7 +8,8 @@ class UsersController < ApplicationController
     if current_user
       @activities = current_user.activities
       if @activities.last.calories.blank?
-        @last_activity = runkeeper_user.past_activity(@activities.last.uri)
+        latest = runkeeper_user.past_activity(@activities.last.uri)
+        @last_activity = @activities.last.update_from_stream!(latest)
       else
         @last_activity = @activities.last
       end

@@ -20,4 +20,10 @@ class Activity < ActiveRecord::Base
   validates_uniqueness_of :start_time, :scope => :user_id
 
   belongs_to :user
+  
+  def update_from_stream!(stream)
+    self.calories = stream['total_calories']
+    self.save
+    self
+  end
 end
