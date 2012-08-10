@@ -17,8 +17,11 @@ gem "runkeeper", :git => "git://github.com/zaparka/runkeeper.git"
 group :development, :test do
   gem 'debugger'
   gem 'annotate', '2.4.1.beta1'
-  gem "rspec-rails"
+end
+
+group :test do
   gem 'webmock'
+  gem "rspec-rails"
 end
 
 # for heroku

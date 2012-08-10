@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
-  # before_filter update_users_activities, :only => :index
-
   def index
   end
   
   def show
     if current_user
       @activities = current_user.activities
-      @last_activity = runkeeper_user.past_activity(@activities.last.uri)
+      if @activities.last.calories.blank?
+        @last_activity = runkeeper_user.past_activity(@activities.last.uri)
+      else
+        @last_activity = @activities.last
+      end
     else
       @activities = []
     end
