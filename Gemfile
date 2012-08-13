@@ -22,6 +22,7 @@ end
 group :test do
   gem 'webmock'
   gem "rspec-rails"
+  gem 'factory_girl_rails'
 end
 
 # for heroku
