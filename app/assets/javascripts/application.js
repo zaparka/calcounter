@@ -13,23 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var months = ['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 $(window).load(function () {
   $('ul.activities li').click(function(){
     $('ul.activities li.active').removeClass('active');
     $(this).addClass('active');
-    load_data
+    value = $(this).attr('id')
+    load_data(value)
   })
 });
 
-function load_data(url){
+function load_data(id){
   $.ajax({
-    url: url,
-    context: document.body
-  }).done(function() { 
-    // $(this).addClass("done");
-    // update actual activity
-    $("figure span#calories_burned em").text('22');
-    $("figure span#latest_start em").text('22');
-    $("figure span#latest_distance em").text('22');
+    url: '/activities/'+id
+  }).done(function(response) {
+    $("figure span#calories_burned em").text(response.calories);
+    var date = new Date(response.start_time * 1000);
+    $("figure span#latest_start em").text(days[date.getDay()] + " " + date.getDate() +". "+ months[date.getMonth()] +" "+ date.getFullYear());
+    $("figure span#latest_distance em").text(response.total_distance / 1000);
   });
 }

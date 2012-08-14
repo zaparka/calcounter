@@ -32,8 +32,10 @@ class User < ActiveRecord::Base
   end
 
   def load_latest_data(runkeeper_user)
-    unit = runkeeper_user.settings["distance_units"] if self.distance_unit.blank?
-    self.update_attribute(:distance_unit, unit)
+    if self.distance_unit.blank?
+      unit = runkeeper_user.settings["distance_units"]
+      self.update_attribute(:distance_unit, unit)
+    end
 
     activities = runkeeper_user.fitness_activities["items"]
     activities.each do |activity|

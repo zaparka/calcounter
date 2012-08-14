@@ -7,15 +7,14 @@
          <h4>Last / selected activity detail</h4>
          <span id="calories_burned">Total calories burned:<em><%= @last_activity.calories %></em></span>
          <span id="latest_start">on <em><%= Time.at(@last_activity.start_time.to_i).strftime("%A %e %B %Y") %></em>, </span>
-         <span id="latest_distance"><em><%= (@last_activity.total_distance/1000).round(2).to_s + " " + current_user.distance_unit.to_s %></em></span>
+         <span id="latest_distance"><em><%= (@last_activity.total_distance/1000).round(2) %></em> <%= current_user.distance_unit %></span>
       </figure>
       <br />
       <ul class='activities'>
         <% @activities.each_with_index do |activity, i| %>
-          <li <%= (i == 0)? "class='active'" : "" %>>
+          <li <%= ((i == 0)? "class='active'" : "") + "id='#{activity.id}'" %>>
             <%= Time.at(activity.start_time.to_i).strftime("%A %e %B %Y") %>
             <%= (activity.total_distance/1000).round(2).to_s + " " + current_user.distance_unit.to_s %>
-            <%= hidden_field_tag activity.uri %>
           </li>
         <% end %>
       </ul>
