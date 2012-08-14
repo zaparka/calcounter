@@ -16,12 +16,17 @@ describe UsersController do
       assigns(:last_activity).should == activity
     end
 
+    # latest = runkeeper_user.past_activity(@activities.last.uri)
+    # @last_activity = @activities.last.update_from_stream!(latest)
+
     it "load latest activity from runkeeper" do
       activity = mock("activity", :calories => nil, :uri => "correct uri")
       user = mock("user", :activities => [activity])
+
       runkeeper = mock("runkeeper")
-      runkeeper.should_receive(:past_activity).with("correct uri").and_return "last activity"
-      
+      runkeeper.should_receive(:past_activity).with("correct uri").and_return "stream activity"
+      activity.should_receive(:update_from_stream!).with("stream activity").and_return "last activity"
+
       controller.stub(:runkeeper_user).and_return runkeeper
       controller.stub(:current_user).and_return user
 
